@@ -45,7 +45,7 @@ class SellersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Integer $seller
+     * @param  string $seller
      * @return \Illuminate\Http\Response
      */
     public function show($seller)
@@ -58,11 +58,14 @@ class SellersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\JSONAPIRequest $request
-     * @param  \App\Models\Seller\Seller  $seller
+     * @param  string  $seller
      * @return \Illuminate\Http\Response
      */
-    public function update(JSONAPIRequest $request, Seller $seller)
+    public function update(JSONAPIRequest $request, $seller)
     {
+        // find the seller
+        $seller = Seller::findOrFail($seller);
+
         // update the seller data
         return $this->service->updateResource(
             $seller,
@@ -73,11 +76,14 @@ class SellersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Seller  $seller
+     * @param  string $seller
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Seller $seller)
+    public function destroy($seller)
     {
+        // find the seller
+        $seller = Seller::findOrFail($seller);
+
         // delete the seller
         return $this->service->deleteResource($seller);
     }

@@ -119,6 +119,9 @@ $app->register(Spatie\QueryBuilder\QueryBuilderServiceProvider::class);
 // register spatie/laravel-json-api-paginate
 $app->register(Spatie\JsonApiPaginate\JsonApiPaginateServiceProvider::class);
 
+// register askedio/laravel-soft-cascade
+$app->register(Askedio\SoftCascade\Providers\LumenServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
