@@ -460,7 +460,7 @@ it('validates that the type member is given when creating a seller', function ()
             ]
         ]);
 
-    // assert the database has the sellers's recored
+    // assert the database has the seller's record
     $this->missingFromDatabase('sellers', [
         'id' => '1',
         'user_id' => $this->user->id
@@ -494,7 +494,7 @@ it('validates that the type member has the value of users when creating a seller
             ]
         ]);
 
-    // assert the database has the sellers's recored
+    // assert the database has the seller's record
     $this->missingFromDatabase('sellers', [
         'id' => '1',
         'user_id' => $this->user->id
@@ -532,7 +532,7 @@ it('validates that the attributes member has been given when creating a seller',
             ]
         ]);
 
-    // assert the database has the sellers's recored
+    // assert the database has the seller's record
     $this->missingFromDatabase('sellers', [
         'id' => '1',
         'user_id' => $this->user->id
@@ -571,7 +571,7 @@ it('validates that the attributes member is an object given when creating a sell
             ]
         ]);
 
-    // assert the database has the sellers's recored
+    // assert the database has the seller's record
     $this->missingFromDatabase('sellers', [
         'id' => '1',
         'user_id' => $this->user->id
@@ -605,7 +605,7 @@ it('validates that a user id attribute is given when creating a seller', functio
             ]
         ]);
 
-    // assert the database has the sellers's recored
+    // assert the database has the seller's record
     $this->missingFromDatabase('sellers', [
         'id' => '1',
         'user_id' => $this->user->id
