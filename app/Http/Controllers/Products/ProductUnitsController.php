@@ -59,11 +59,14 @@ class ProductUnitsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product\ProductUnit  $productUnit
+     * @param  string  $productUnit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductUnit $productUnit)
+    public function update(Request $request, $productUnit)
     {
+        // find the product unit
+        $productUnit = ProductUnit::findOrFail($productUnit);
+
         // update the product unit data
         return $this->service->updateResource(
             $productUnit,
