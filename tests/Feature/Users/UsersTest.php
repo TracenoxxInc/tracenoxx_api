@@ -548,7 +548,7 @@ it('can paginate users through a page query param and show different pages', fun
 
 
 it('can update a user from a resource object', function () {
-    $this->withoutExceptionHandling();
+    // $this->withoutExceptionHandling();
     // create a user
     $user = factory(User::class)->create();
 

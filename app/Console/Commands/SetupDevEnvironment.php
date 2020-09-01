@@ -59,7 +59,7 @@ class SetupDevEnvironment extends Command
     private function MigrateAndSeedDatabase()
     {
         $this->call('migrate:fresh');
-        $this->call('db:seed');
+        // $this->call('db:seed');
     }
 
     /**
