@@ -53,13 +53,19 @@ cp env-example .env
 COMPOSE_PATH_SEPARATOR=;
 ```
 
-**Step 5** - Add the Site URL to the `host` file in the local machine
+**Step 5** - Change the PostgreSQL database name (search `postgres` in the .env file inside the `laradock` folder)
+
+```
+POSTGRES_DB=apistarter
+```
+
+**Step 6** - Add the Site URL to the `host` file in the local machine
 
 ```
 127.0.0.1	api-starter-lumen.test
 ```
 
-**Step 6** - Setup `nginx` server
+**Step 7** - Setup `nginx` server
 
 Go to the folder mentioned below,
 
@@ -89,48 +95,55 @@ server_name api-starter-lumen.test;
 root /var/www/API-starter-lumen/public;
 ```
 
-**Step 7** - Run the `Docker` containers
+**Step 8** - Run the `Docker` containers
 
 ```
-docker-compose up -d nginx mysql phpmyadmin
+docker-compose up -d nginx postgres pgadmin
 ```
 
-**Step 8** - Create database
-
-Visit `http://localhost:8080` and login with the following credentials,
+**Step 9** - Execute the `postgres` container and setup the database
 
 ```
-server: mysql
-username: root
-password: root
+docker-compose exec postgres bash
+
+Then,
+psql -U default
+create database apistarter;
 ```
 
-**Step 9** - Execute the workspace container
+and then exit
+
+```
+exit
+exit
+```
+
+**Step 10** - Execute the workspace container
 
 ```
 docker-compose exec workspace bash
 ```
 
-**Step 10** - Copy the `.env.example` file to `.env` in
+**Step 11** - Copy the `.env.example` file to `.env` in
 
 ```
 cd API-starter-lumen
 cp .env.example .env
 ```
 
-**Step 11** - Install `Composer`
+**Step 12** - Install `Composer`
 
 ```
 composer install
 ```
 
-**Step 12** - Generate application key (It may not work for Lumen, so put any random string as key in the .env file)
+**Step 13** - Generate application key (It may not work for Lumen, so put any random string as key in the .env file)
 
 ```
 php artisan key:generate
 ```
 
-**Step 13** - Run Migration
+**Step 14** - Run Migration
 
 ```
 php artisan migrate
